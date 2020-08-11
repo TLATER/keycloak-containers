@@ -1,0 +1,26 @@
+embed-server --server-config=standalone.xml --std-out=echo
+try
+    /subsystem=datasources/jdbc-driver=mariadb:remove()
+catch
+end-try
+
+try
+    /subsystem=datasources/jdbc-driver=sqlserver:remove()
+catch
+end-try
+
+try
+    /subsystem=datasources/jdbc-driver=mysql:remove()
+catch
+end-try
+
+try
+    /subsystem=datasources/jdbc-driver=oracle:remove()
+catch
+end-try
+
+try
+    /subsystem=datasources/jdbc-driver=postgresql:remove()
+catch
+end-try
+stop-embedded-server
